@@ -19,6 +19,8 @@ class Users {
     var type : Int
     var DateOfRegister : Data
     
+
+    
     init(UserId : Int ,Fname : String , Lname : String,email : String, password : String,city : String,active : Int,type : Int,DateOfRegister : Data) {
         
         self.UserId = UserId
