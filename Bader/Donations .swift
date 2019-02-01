@@ -16,8 +16,8 @@ class Donations {
     var image : String = ""
     var type : Int = 0
     var OrderStatus : Int = 0
-    var DateOfOrder : String? = ""
-    var DateOfUpload : String? = ""
+    var DateOfOrder : String = ""
+    var DateOfUpload : String = ""
     
     //    init(_ dictionary: [String: Any]) {
     //
@@ -31,7 +31,7 @@ class Donations {
     //        self.DateOfUpload = (dictionary["DateOfUpload"] as? Data ?? nil)!
     //    }
     
-    func getData( dataJson:[String: Any] ) -> (Donations) {
+    func getDonationsData( dataJson:[String: Any] ) -> (Donations) {
         var donation = Donations()
         donation.DonationId = dataJson["Donation_id"] as? Int ?? 0
         donation.name = dataJson["Name"] as? String ?? ""
@@ -39,7 +39,7 @@ class Donations {
         donation.image = dataJson["Image"] as? String ?? ""
         donation.type = dataJson["Type"] as? Int ?? 0
         donation.OrderStatus = dataJson["Order_Status"] as? Int ?? 0
-        donation.DateOfOrder = dataJson["Date_of_Order"] as? String ??  ""
+        donation.DateOfOrder = dataJson["Date_of_Order"] as? String ?? ""
         donation.DateOfUpload = dataJson["Date_of_Upload"] as? String ?? ""
         
         return donation

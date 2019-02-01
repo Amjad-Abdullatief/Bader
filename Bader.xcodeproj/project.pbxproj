@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		62251DBB2204C8E70088A154 /* brwsar_iconin.png in Resources */ = {isa = PBXBuildFile; fileRef = 62251DBA2204C8E70088A154 /* brwsar_iconin.png */; };
 		62251DBD2204CBBD0088A154 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62251DBC2204CBBD0088A154 /* UserInfo.swift */; };
+		62251DBF2204D2000088A154 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62251DBE2204D2000088A154 /* TabBarController.swift */; };
 		AB41F32421F8D4C900474F07 /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41F32321F8D4C900474F07 /* XUI.swift */; };
 		AB60C8D02203696500942930 /* Charities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8CF2203696500942930 /* Charities.swift */; };
 		AB60C8D222036C7400942930 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8D122036C7400942930 /* Users.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		62251DBA2204C8E70088A154 /* brwsar_iconin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brwsar_iconin.png; sourceTree = "<group>"; };
 		62251DBC2204CBBD0088A154 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		62251DBE2204D2000088A154 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AB41F32321F8D4C900474F07 /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		AB60C8CF2203696500942930 /* Charities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charities.swift; sourceTree = "<group>"; };
 		AB60C8D122036C7400942930 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				62251DB92204C8C80088A154 /* image */,
 				AB41F32221F8D4A700474F07 /* XFile */,
 				ABD183DF21F64BF900B73B4B /* AppDelegate.swift */,
+				62251DBE2204D2000088A154 /* TabBarController.swift */,
 				AB60C8CF2203696500942930 /* Charities.swift */,
 				AB60C8D122036C7400942930 /* Users.swift */,
 				AB60C8D72203812000942930 /* Orders.swift */,
@@ -207,6 +210,7 @@
 				62251DBD2204CBBD0088A154 /* UserInfo.swift in Sources */,
 				ABEEC91E21FA2700009652AA /* SignUpVC.swift in Sources */,
 				ABFA8E7A21FCD3200070720E /* TableViewCell.swift in Sources */,
+				62251DBF2204D2000088A154 /* TabBarController.swift in Sources */,
 				AB60C8D02203696500942930 /* Charities.swift in Sources */,
 				ABD183E021F64BF900B73B4B /* AppDelegate.swift in Sources */,
 			);

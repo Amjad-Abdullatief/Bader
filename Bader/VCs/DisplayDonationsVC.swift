@@ -56,9 +56,12 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         
         print("donation.name : \(donation.name)")
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'/'HH':'mm"
+
         cell.name.text = donation.name
         cell.descriptions.text = donation.description
-        cell.UploadDate.text = donation.DateOfOrder
+        cell.UploadDate.text = (dateFormatter.date(from: "donation.DateOfUpload" ))?.description
         cell.images.image = base64Convert(base64String: donation.image)
         
         let separatorLine = UIImageView.init(frame: CGRect(x: 4, y: 0, width: cell.frame.width - 8, height: 2))
@@ -87,7 +90,7 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
                     self.donationList.removeAll()
                     for blog in blogs {
                         var donation=Donations()
-                        donation = donation.getData(dataJson: blog)
+                        donation = donation.getDonationsData(dataJson: blog)
 //                        if let name = blog["Name"] as? String {print("##Name : \(name)")}
                         
                         print("##donationId = \(donation.DonationId)")

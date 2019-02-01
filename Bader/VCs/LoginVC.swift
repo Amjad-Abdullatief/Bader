@@ -14,8 +14,11 @@ class LoginVC : UIViewController
     @IBOutlet weak var email: XTextField!
     @IBOutlet weak var password: XTextField!
     
+    var user:Users = Users()
     @IBAction func Login(_ sender: Any) {
-        
+//        getJsonFromUrl()
+        let goToHomePage = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! TabBarController
+        self.present(goToHomePage, animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,4 +63,60 @@ extension LoginVC {
         }
     
 }
+    
+    
+    
+    
+    func getJsonFromUrl(){
+        print("##getJsonFromUrl open")
+        print("##performPostRequest open")
+        
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id="+UserInfo.userId.description)! // Enter URL Here
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            print("##URLSession open")
+            do {
+                if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let blogs = json["result"] as? [[String: Any]] {
+                    for blog in blogs {
+                        
+                        self.user = self.user.getUsersData(dataJson: blog)
+                        
+//                        print("##donationId = \(donation.DonationId)")
+//                        print("##name = \(donation.name)")
+//                        print("##OrderStatus = \(donation.OrderStatus)")
+//                        print("##description = \(donation.description)")
+                        
+                                            }
+                }
+            } catch {
+                print("##Error deserializing JSON: \(error)")
+            }
+            //            print("##names: \(self.names)")
+            
+            //            print(self.names)
+            self.showNames()
+            
+        }
+        task.resume()
+        
+        
+    }
+    
+    func showNames(){
+        //looing through all the elements of the array
+        DispatchQueue.main.async {
+ 
+            if(self.user.UserId != 0)
+            {
+                UserInfo.userId=self.user.UserId
+                
+//                let goToHomePage = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! TabBarController
+//                self.present(goToHomePage, animated: true, completion: nil)
+                
+                
+            }
+        }
+    }
 }
