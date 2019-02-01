@@ -18,7 +18,7 @@ class NeedyOrders {
     init(id : Int ,User_id : Int,Donation_id : Int,OrderUser_status : Int) {
         
         self.id = id
-        self.User_id = User_id 
+        self.User_id = User_id
         self.Donation_id = Donation_id
         self.OrderUser_status = OrderUser_status
     }
