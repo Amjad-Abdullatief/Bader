@@ -24,6 +24,7 @@ class LoginVC : UIViewController
     @IBOutlet weak var ButtonLayout: NSLayoutConstraint!
     override func viewDidLoad() {
         SettingUpKeyboardNotification()
+        UserInfo.userId=4
         
         
     }

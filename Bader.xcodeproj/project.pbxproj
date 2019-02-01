@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62251DBB2204C8E70088A154 /* brwsar_iconin.png in Resources */ = {isa = PBXBuildFile; fileRef = 62251DBA2204C8E70088A154 /* brwsar_iconin.png */; };
+		62251DBD2204CBBD0088A154 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62251DBC2204CBBD0088A154 /* UserInfo.swift */; };
 		AB41F32421F8D4C900474F07 /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41F32321F8D4C900474F07 /* XUI.swift */; };
 		AB60C8D02203696500942930 /* Charities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8CF2203696500942930 /* Charities.swift */; };
 		AB60C8D222036C7400942930 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8D122036C7400942930 /* Users.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62251DBA2204C8E70088A154 /* brwsar_iconin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brwsar_iconin.png; sourceTree = "<group>"; };
+		62251DBC2204CBBD0088A154 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		AB41F32321F8D4C900474F07 /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		AB60C8CF2203696500942930 /* Charities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charities.swift; sourceTree = "<group>"; };
 		AB60C8D122036C7400942930 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -55,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62251DB92204C8C80088A154 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				62251DBA2204C8E70088A154 /* brwsar_iconin.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		AB41F32221F8D4A700474F07 /* XFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 		ABD183DE21F64BF900B73B4B /* Bader */ = {
 			isa = PBXGroup;
 			children = (
+				62251DB92204C8C80088A154 /* image */,
 				AB41F32221F8D4A700474F07 /* XFile */,
 				ABD183DF21F64BF900B73B4B /* AppDelegate.swift */,
 				AB60C8CF2203696500942930 /* Charities.swift */,
@@ -95,6 +108,7 @@
 				ABD183E621F64BFA00B73B4B /* Assets.xcassets */,
 				ABD183E821F64BFA00B73B4B /* LaunchScreen.storyboard */,
 				ABD183EB21F64BFA00B73B4B /* Info.plist */,
+				62251DBC2204CBBD0088A154 /* UserInfo.swift */,
 			);
 			path = Bader;
 			sourceTree = "<group>";
@@ -168,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62251DBB2204C8E70088A154 /* brwsar_iconin.png in Resources */,
 				ABD183EA21F64BFA00B73B4B /* LaunchScreen.storyboard in Resources */,
 				ABD183E721F64BFA00B73B4B /* Assets.xcassets in Resources */,
 				ABD183E521F64BF900B73B4B /* Main.storyboard in Resources */,
@@ -189,6 +204,7 @@
 				AB60C8D422036C9500942930 /* Donations .swift in Sources */,
 				AB60C8D82203812000942930 /* Orders.swift in Sources */,
 				ABEEC91C21FA0D53009652AA /* LoginVC.swift in Sources */,
+				62251DBD2204CBBD0088A154 /* UserInfo.swift in Sources */,
 				ABEEC91E21FA2700009652AA /* SignUpVC.swift in Sources */,
 				ABFA8E7A21FCD3200070720E /* TableViewCell.swift in Sources */,
 				AB60C8D02203696500942930 /* Charities.swift in Sources */,
