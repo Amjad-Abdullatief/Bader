@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class UserInfo {
+class UserInfo { 
     static var userId:Int = 0
     static var userName:String = ""
 }
