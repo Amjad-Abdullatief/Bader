@@ -107,11 +107,11 @@
 				AB60C8D322036C9500942930 /* Donations .swift */,
 				ABD183E321F64BF900B73B4B /* Main.storyboard */,
 				ABFA8E7921FCD3200070720E /* TableViewCell.swift */,
+				62251DBC2204CBBD0088A154 /* UserInfo.swift */,
 				ABEEC91A21FA0D2B009652AA /* VCs */,
 				ABD183E621F64BFA00B73B4B /* Assets.xcassets */,
 				ABD183E821F64BFA00B73B4B /* LaunchScreen.storyboard */,
 				ABD183EB21F64BFA00B73B4B /* Info.plist */,
-				62251DBC2204CBBD0088A154 /* UserInfo.swift */,
 			);
 			path = Bader;
 			sourceTree = "<group>";

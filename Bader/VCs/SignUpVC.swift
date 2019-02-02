@@ -17,7 +17,7 @@ class SignupVC : UIViewController
     @IBOutlet weak var email: XTextField!
     @IBOutlet weak var Password: XTextField!
     @IBOutlet weak var ConfirmPassword: XTextField!
-
+ 
     @IBAction func SignUp(_ sender: Any) {
     }
     

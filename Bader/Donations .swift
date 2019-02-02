@@ -42,7 +42,7 @@ class Donations {
         donation.DateOfOrder = dataJson["Date_of_Order"] as? String ?? ""
         donation.DateOfUpload = dataJson["Date_of_Upload"] as? String ?? ""
         
-        return donation
+        return donation 
     }
     
     

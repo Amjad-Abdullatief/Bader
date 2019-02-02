@@ -32,7 +32,7 @@ class LoginVC : UIViewController
         
     }
     
-}
+} 
 
 extension LoginVC {
     
