@@ -38,13 +38,13 @@ class Users {
     
     func getUsersData( dataJson:[String: Any] ) -> (Users) {
         var user = Users()
-        user.UserId = dataJson["Donation_id"] as? Int ?? 0
-        user.Fname = dataJson["Name"] as? String ?? ""
-        user.Lname = dataJson["Description"] as? String ?? ""
-        user.email = dataJson["Image"] as? String ?? ""
-        user.password = dataJson["Type"] as? String ?? ""
-        user.city = dataJson["Order_Status"] as? String ?? ""
-        user.type = dataJson["Date_of_Order"] as? Int ??  0
+        user.UserId = dataJson["User_Id"] as? Int ?? 0
+        user.Fname = dataJson["First_name"] as? String ?? ""
+        user.Lname = dataJson["Last_name"] as? String ?? ""
+        user.email = dataJson["Email"] as? String ?? ""
+        user.password = dataJson["Password"] as? String ?? ""
+        user.city = dataJson["City"] as? String ?? ""
+        user.type = dataJson["Type"] as? Int ??  0
         
         return user
     }
