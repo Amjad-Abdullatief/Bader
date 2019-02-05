@@ -1,15 +1,16 @@
 //
-//  DonationDetailsVCViewController.swift
+//  MyOrdersDetailsa.swift
 //  Bader
 //
-//  Created by Itc on 02/02/2019.
-//  Copyright © 2019 aa. All rights reserved.
+//  Created by AMJAD - on 30 جما١، 1440 هـ.
+//  Copyright © 1440 هـ aa. All rights reserved.
 //
+
 
 import UIKit
 
-class DonationDetailsVC: UIViewController {
-
+class MyOrdersDetailsaVC: UIViewController {
+    
     @IBOutlet weak var donationName: UILabel!
     @IBOutlet weak var donationImage: UIImageView!
     @IBOutlet weak var donationUserName: UILabel!
@@ -20,7 +21,7 @@ class DonationDetailsVC: UIViewController {
     var donation = Donations()
     var user = Users()
     var view1 = UIView()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class DonationDetailsVC: UIViewController {
         getJsonFromUrl()
         // Do any additional setup after loading the view.
     }
- 
+    
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
@@ -42,7 +43,7 @@ class DonationDetailsVC: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let blogs = json["result"] as? [[String: Any]] {
                     //                    print("##URLSession blogs ")
-
+                    
                     for blog in blogs {
                         self.donation=Donations()
                         self.donation = self.donation.getDonationsData(dataJson: blog)
@@ -51,7 +52,7 @@ class DonationDetailsVC: UIViewController {
                             print("##blogsUser = \(userList)")
                             print("##blogsUser = \(userList)")
                             self.user = self.user.getUsersData(dataJson: userList)
-
+                            
                         }
                         print("##donationId = \(self.donation.DonationId)")
                         print("##name = \(self.donation.name)")
@@ -138,6 +139,7 @@ class DonationDetailsVC: UIViewController {
             return decodedimage!
         }
     }
-
-
+    
+    
 }
+

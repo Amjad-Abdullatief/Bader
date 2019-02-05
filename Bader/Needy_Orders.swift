@@ -10,16 +10,19 @@ import Foundation
 
 class NeedyOrders {
     
-    var id : Int
-    var User_id : Int
-    var  Donation_id : Int
-    var OrderUser_status : Int
+    var id : Int = 0
+    var User_id : Int = 0
+    var  Donation_id : Int = 0
+    var OrderUser_status : Int = 0
+
     
-    init(id : Int ,User_id : Int,Donation_id : Int,OrderUser_status : Int) {
-        
-        self.id = id 
-        self.User_id = User_id
-        self.Donation_id = Donation_id
-        self.OrderUser_status = OrderUser_status
+    func getOrdersData( dataJson:[String: Any] ) -> (NeedyOrders) {
+        var order = NeedyOrders()
+        order.id = dataJson["id"] as? Int ?? 0
+        order.User_id = dataJson["User_id"] as? Int ?? 0
+        order.Donation_id = dataJson["Donation_id"] as? Int ?? 0
+        order.OrderUser_status = dataJson["OrderUser_status"] as? Int ?? 0
+
+        return order
     }
 }
