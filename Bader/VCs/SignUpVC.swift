@@ -19,6 +19,8 @@ class SignupVC : UIViewController
     @IBOutlet weak var ConfirmPassword: XTextField!
     @IBOutlet weak var labelMassage: UILabel!
     
+    var isAdded = false
+    
     @IBAction func SignUp(_ sender: Any) {
         
         labelMassage.isHidden=false
@@ -104,15 +106,18 @@ extension SignupVC {
             print("##URLSession open")
             do {
 //                if let data = data,
-//                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-//                    let blogs = json["result"] as? [[String: Any]] {
-//                    //                    print("##URLSession blogs ")
-//
+                if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let blogs = json["result"] as? [String: Any] {
+                    print("##blog = \(blogs.count)")
 //                    for blog in blogs {
+//                    self.user = self.user.getUsersData(dataJson: blogs)
 //
+//                    print("##UserId = \(self.user.UserId)")
+//                    print("##Fname = \(self.user.Fname)")
 //
-//                    }
 //                }
+                }
             } catch {
                 print("##Error deserializing JSON: \(error)")
             }
