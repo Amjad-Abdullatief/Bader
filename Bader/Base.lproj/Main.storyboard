@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PQ9-oR-h6E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yy6-xB-TDJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,7 +65,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-wW-h45">
                                 <rect key="frame" x="35" y="252" width="305" height="99"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     البريد الالكتروني" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HaD-cb-IMi" customClass="XTextField" customModule="Bader" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Smm4@gmail.com" borderStyle="roundedRect" placeholder="     البريد الالكتروني" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HaD-cb-IMi" customClass="XTextField" customModule="Bader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="45"/>
                                         <color key="backgroundColor" red="0.92905142709017619" green="0.94763245563197973" blue="0.94763245563197973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -81,7 +81,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="CircleCurves" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc2-DB-Ehy" customClass="XTextField" customModule="Bader" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hh766" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc2-DB-Ehy" customClass="XTextField" customModule="Bader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="54" width="305" height="45"/>
                                         <color key="backgroundColor" red="0.92905142709017619" green="0.94763245563197973" blue="0.94763245563197973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
@@ -570,7 +570,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="59u-eH-eK3">
             <objects>
-                <tabBarController storyboardIdentifier="AfterLogin" id="PQ9-oR-h6E" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="AfterLogin" id="PQ9-oR-h6E" customClass="TabBarController" customModule="Bader" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xc3-nc-qjD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1215,7 +1215,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="DRj-bB-WZW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDo-5y-aii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-170"/>
+            <point key="canvasLocation" x="-527" y="-431"/>
         </scene>
     </scenes>
     <resources>
@@ -1223,7 +1223,7 @@
         <image name="personal-icon-12.jpg" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1ab-rq-AP8"/>
+        <segue reference="Tod-mc-ZGu"/>
         <segue reference="ITO-hJ-A87"/>
     </inferredMetricsTieBreakers>
 </document>

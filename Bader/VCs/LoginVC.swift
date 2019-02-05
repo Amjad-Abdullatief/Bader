@@ -70,27 +70,26 @@ extension LoginVC {
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
+        var useremail = (email.text)! as String
+        var userPassword = (password.text)! as String
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getLogin?email=Smm4@gmail.com&password=hh766")! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getLogin?email=\(useremail)&password=\(userPassword)")! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
             do {
                 if let data = data,
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let blogs = json["result"] as? [[String: Any]] {
+                    let blogs = json["result"] as? [String: Any] {
                     print("##blog = \(blogs.count)")
-                    for blog in blogs {
-                        print("##blog = \(blog)")
-                        self.user = self.user.getUsersData(dataJson: blog)
+//                    for blog in blogs {
+                        self.user = self.user.getUsersData(dataJson: blogs)
                         
-//                        print("##donationId = \(donation.DonationId)")
-//                        print("##name = \(donation.name)")
-//                        print("##OrderStatus = \(donation.OrderStatus)")
-//                        print("##description = \(donation.description)")
+                        print("##UserId = \(self.user.UserId)")
+                        print("##Fname = \(self.user.Fname)")
                         
                                             }
-                }
+//                }
             } catch {
                 print("##Error deserializing JSON: \(error)")
             }
@@ -113,8 +112,8 @@ extension LoginVC {
             {
                 UserInfo.userId=self.user.UserId
                 
-//                let goToHomePage = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! TabBarController
-//                self.present(goToHomePage, animated: true, completion: nil)
+                let goToHomePage = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! TabBarController
+                self.present(goToHomePage, animated: true, completion: nil)
                 
                 
             }
