@@ -11,6 +11,7 @@
 		62251DBD2204CBBD0088A154 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62251DBC2204CBBD0088A154 /* UserInfo.swift */; };
 		62251DBF2204D2000088A154 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62251DBE2204D2000088A154 /* TabBarController.swift */; };
 		622576EF22057F3A009BB70C /* DonationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622576EE22057F3A009BB70C /* DonationDetailsVC.swift */; };
+		62439D3C220A244200C03DB2 /* AddDonationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62439D3B220A244200C03DB2 /* AddDonationVC.swift */; };
 		AB109E452208D89E00F1D645 /* MyDonationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB109E442208D89E00F1D645 /* MyDonationsVC.swift */; };
 		AB109E472208DE2400F1D645 /* MyDonationsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB109E462208DE2400F1D645 /* MyDonationsDetailsVC.swift */; };
 		AB109E492208DF8700F1D645 /* ListNeedyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB109E482208DF8700F1D645 /* ListNeedyCell.swift */; };
@@ -40,6 +41,7 @@
 		62251DBC2204CBBD0088A154 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		62251DBE2204D2000088A154 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		622576EE22057F3A009BB70C /* DonationDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationDetailsVC.swift; sourceTree = "<group>"; };
+		62439D3B220A244200C03DB2 /* AddDonationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationVC.swift; sourceTree = "<group>"; };
 		AB109E442208D89E00F1D645 /* MyDonationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDonationsVC.swift; sourceTree = "<group>"; };
 		AB109E462208DE2400F1D645 /* MyDonationsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDonationsDetailsVC.swift; sourceTree = "<group>"; };
 		AB109E482208DF8700F1D645 /* ListNeedyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNeedyCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				ABE3F0B02209EC3500CE9024 /* MyOrdersDetailsaVC.swift */,
 				ABEEC91B21FA0D53009652AA /* LoginVC.swift */,
 				ABEEC91D21FA2700009652AA /* SignUpVC.swift */,
+				62439D3B220A244200C03DB2 /* AddDonationVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				AB109E472208DE2400F1D645 /* MyDonationsDetailsVC.swift in Sources */,
 				ABEEC91E21FA2700009652AA /* SignUpVC.swift in Sources */,
 				AB6AB08D2207F3F7009A6802 /* MyOrders_DonationsCell.swift in Sources */,
+				62439D3C220A244200C03DB2 /* AddDonationVC.swift in Sources */,
 				AB109E492208DF8700F1D645 /* ListNeedyCell.swift in Sources */,
 				ABFA8E7A21FCD3200070720E /* DonationsCell.swift in Sources */,
 				62251DBF2204D2000088A154 /* TabBarController.swift in Sources */,

@@ -71,13 +71,21 @@ class MyDonationsVC : UIViewController , UITableViewDelegate , UITableViewDataSo
         
     }
     
-    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        let item = donationList[indexPath.row]
+//        print("##item : \(donationList[indexPath.row])")
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "segueMyDonation") as! MyDonationsDetailsVC
+//        vc.donationId = item.DonationId
+//        self.present(vc, animated: true, completion: nil)
+//        
+//    }
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id=4")!
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id="+UserInfo.userId.description)!
         
         //+UserInfo.userId.description)! // Enter URL Here
         
@@ -174,6 +182,52 @@ class MyDonationsVC : UIViewController , UITableViewDelegate , UITableViewDataSo
             return decodedimage!
         }
     }
+    
+    
+//    
+//    func getJsonFromUrlRequestDonation(){
+//        print("##getJsonFromUrl open")
+//        print("##performPostRequest open")
+//        
+//        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id="+UserInfo.userId.description)!
+//        
+//        //+UserInfo.userId.description)! // Enter URL Here
+//        
+//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            print("##URLSession open")
+//            do {
+//                if let data = data,
+//                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+//                    let blogs = json["result"] as? [[String: Any]] {
+//                    //                    print("##URLSession blogs ")
+//                    self.donationList.removeAll()
+//                    for blog in blogs {
+//                        var donation=Donations()
+//                        donation = donation.getDonationsData(dataJson: blog)
+//                        //                        if let name = blog["Name"] as? String {print("##Name : \(name)")}
+//                        
+//                        print("##donationId = \(donation.DonationId)")
+//                        print("##name = \(donation.name)")
+//                        print("##OrderStatus = \(donation.OrderStatus)")
+//                        print("##description = \(donation.description)")
+//                        
+//                        
+//                        self.donationList.append(donation)
+//                    }
+//                }
+//            } catch {
+//                print("##Error deserializing JSON: \(error)")
+//            }
+//            //            print("##names: \(self.names)")
+//            
+//            //            print(self.names)
+//            self.showNames()
+//            
+//        }
+//        task.resume()
+//        
+//        
+//    }
 }
 
 

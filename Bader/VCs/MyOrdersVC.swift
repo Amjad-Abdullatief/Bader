@@ -71,13 +71,21 @@ class MyOrdersVC : UIViewController , UITableViewDelegate , UITableViewDataSourc
         
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let item = donationList[indexPath.row]
+        print("##item : \(donationList[indexPath.row])")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "segueMMyOrders") as! MyOrdersDetailsaVC
+        vc.donationId = item.DonationId
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getMyOrder?Id_Needy=3")!
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getMyOrder?Id_Needy="+UserInfo.userId.description)!
         
         //+UserInfo.userId.description)! // Enter URL Here
         

@@ -16,6 +16,7 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
 
     var donationList = [Donations()]
     var view1 = UIView()
+    var type=0  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,10 +71,15 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let item = donationList[indexPath.row]
+        print("##item : \(donationList[indexPath.row])")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "segue") as! DonationDetailsVC
+        vc.donationId = item.DonationId
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     
     
     func getJsonFromUrl(){

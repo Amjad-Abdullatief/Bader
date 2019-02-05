@@ -20,11 +20,12 @@ class DonationDetailsVC: UIViewController {
     var donation = Donations()
     var user = Users()
     var view1 = UIView()
+    var donationId = 0;
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("##viewDidLoad open")
         getJsonFromUrl()
         // Do any additional setup after loading the view.
     }
@@ -33,7 +34,7 @@ class DonationDetailsVC: UIViewController {
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DonationDetails?Donation_id=3")! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DonationDetails?Donation_id="+donationId.description)! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")

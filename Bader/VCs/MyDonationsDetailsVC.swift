@@ -21,7 +21,7 @@ class MyDonationsDetailsVC: UIViewController {
     var donation = Donations()
     var user = Users()
     var view1 = UIView()
-    
+    var donationId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
