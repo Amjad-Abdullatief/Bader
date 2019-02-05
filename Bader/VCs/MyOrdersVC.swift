@@ -1,19 +1,20 @@
 //
-//  DisplayDonationsVC.swift
+//  MyOrdersVC.swift
 //  Bader
 //
-//  Created by AMJAD - on 20 جما١، 1440 هـ.
+//  Created by AMJAD - on 28 جما١، 1440 هـ.
 //  Copyright © 1440 هـ aa. All rights reserved.
 //
 
+
 import UIKit
 
-class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewDataSource {
+class MyOrdersVC : UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var TableViewData: UITableView!
     
     
-
+    
     var donationList = [Donations()]
     var view1 = UIView()
     
@@ -25,7 +26,7 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         getJsonFromUrl()
         
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         
@@ -39,7 +40,7 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = self.TableViewData.dequeueReusableCell(withIdentifier: "CellData", for: indexPath) as! TableViewCell
+        let cell = self.TableViewData.dequeueReusableCell(withIdentifier: "CellData", for: indexPath) as! MyOrders_DonationsCell
         
         
         
@@ -53,10 +54,10 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         
         
         print("donation.name : \(donation.name)")
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'/'HH':'mm"
-
+        
         cell.name.text = donation.name
         cell.descriptions.text = donation.description
         cell.UploadDate.text = (dateFormatter.date(from: "donation.DateOfUpload" ))?.description
@@ -70,19 +71,15 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
     
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getAllDonations?type=2&status=2")!
-            
-            //+UserInfo.userId.description)! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getMyOrder?Id_Needy=3")!
+        
+        //+UserInfo.userId.description)! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
@@ -90,18 +87,17 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
                 if let data = data,
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let blogs = json["result"] as? [[String: Any]] {
-//                    print("##URLSession blogs ")
+                    //                    print("##URLSession blogs ")
                     self.donationList.removeAll()
                     for blog in blogs {
                         var donation=Donations()
                         donation = donation.getDonationsData(dataJson: blog)
-//                        if let name = blog["Name"] as? String {print("##Name : \(name)")}
+                        //                        if let name = blog["Name"] as? String {print("##Name : \(name)")}
                         
                         print("##donationId = \(donation.DonationId)")
                         print("##name = \(donation.name)")
                         print("##OrderStatus = \(donation.OrderStatus)")
                         print("##description = \(donation.description)")
-                        print("##Date of Upload = \(donation.DateOfUpload)")
                         
                         
                         self.donationList.append(donation)
@@ -164,10 +160,10 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
         view1.center = self.view.center
         view1.tag = 1000
     }
-   
+    
     
     func base64Convert(base64String: String?) -> UIImage{
-//        print("base64String : \(base64String)")
+        //        print("base64String : \(base64String)")
         if (base64String?.isEmpty)! {
             return UIImage(named: "brwsar_iconin.png")!
         }else {
@@ -178,5 +174,7 @@ class DisplayDonationsVC : UIViewController , UITableViewDelegate , UITableViewD
             return decodedimage!
         }
     }
-} 
+}
+
+
 

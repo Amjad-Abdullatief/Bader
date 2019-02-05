@@ -31,9 +31,9 @@ class ViewController: UIViewController {
         //creating a NSURL
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
-        var request = URLRequest(url: URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id=4")!)
+        var request = URLRequest(url: URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getLogin?email=Smm4@gmail.com&password=hh766")!)
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/MyDonations?User_Id=4")! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getLogin?email=Smm4@gmail.com&password=hh766")! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
@@ -45,9 +45,9 @@ class ViewController: UIViewController {
                     for blog in blogs {
                        
                         
-                        if let name = blog["Name"] as? String {print("##Name : \(name)")}
+                        if let name = blog["Email"] as? String {print("##First_name : \(name)")}
                         
-                       // if let name1 = blog["Num_of_Clothes"] as? String {print("##Num_of_Clothes : \(name1)")}
+                       if let name1 = blog["City"] as? String {print("##Num_of_Clothes : \(name1)")}
                         
                         
                         

@@ -10,32 +10,34 @@ import Foundation
 
 class Charities {
     
-    var CharityId : Int
-    var Name : String
-    var Address : String
-    var Coordinate_X : Float
-    var Coordinate_Y : Float
-    var Phone : String
-    var city : String
-    var working_hours_week_daysPM : String
-    var working_hours_week_daysAM : String
-    var working_hours_Friday : String
-    var working_hours_Saturday : String
+    var CharityId : Int = 0
+    var Name : String = ""
+    var Address : String = ""
+    var Coordinate_X : Float = 0.0
+    var Coordinate_Y : Float = 0.0
+    var Phone : String = ""
+    var city : String = ""
+    var working_hours_week_daysPM : String = ""
+    var working_hours_week_daysAM : String = ""
+    var working_hours_Friday : String = ""
+    var working_hours_Saturday : String = ""
     
-    init(CharityId : Int ,Name : String ,Address : String ,Coordinate_X : Float, Coordinate_Y : Float , Phone : String, city : String, working_hours_week_daysPM : String, working_hours_week_daysAM : String, working_hours_Friday : String,working_hours_Saturday : String) {
+
+    func getCharitiesData( dataJson:[String: Any] ) -> (Charities) {
+        let charity = Charities()
+        charity.CharityId = dataJson["CharityId"] as? Int ?? 0
+        charity.Name = dataJson["Name"] as? String ?? ""
+        charity.Address = dataJson["Address"] as? String ?? ""
+        charity.Coordinate_X = dataJson["Coordinate_X"] as? Float ?? 0.0
+        charity.Coordinate_Y = dataJson["Coordinate_Y"] as? Float ?? 0.0
+        charity.Phone = dataJson["Phone"] as? String ?? ""
+        charity.city = dataJson["city"] as? String ?? ""
+        charity.working_hours_week_daysPM = dataJson["working_hours_week_daysPM"] as? String ?? ""
+        charity.working_hours_week_daysAM = dataJson["working_hours_week_daysAM"] as? String ?? ""
+        charity.working_hours_Saturday = dataJson["working_hours_Saturday"] as? String ?? ""
+        charity.working_hours_Friday = dataJson["working_hours_Friday"] as? String ?? ""
         
-        self.CharityId = CharityId
-        self.Name = Name
-        self.Address = Address
-        self.Coordinate_X = Coordinate_X
-        self.Coordinate_Y = Coordinate_Y
-        self.Phone = Phone
-        self.city = city
-        self.working_hours_week_daysPM = working_hours_week_daysPM
-        self.working_hours_week_daysAM = working_hours_week_daysAM
-        self.working_hours_Saturday = working_hours_Saturday
-        self.working_hours_Friday = working_hours_Friday
         
+        return charity
     }
-    
 }

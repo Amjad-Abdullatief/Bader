@@ -20,6 +20,7 @@ class Donations {
     var DateOfOrder : String = ""
     var DateOfUpload : String = ""
     
+    
     //    init(_ dictionary: [String: Any]) {
     //
     //        self.DonationId = dictionary["DonationId"] as? Int ?? 0
@@ -42,6 +43,7 @@ class Donations {
         donation.OrderStatus = dataJson["Order_Status"] as? Int ?? 0
         donation.DateOfOrder = dataJson["Date_of_Order"] as? String ?? ""
         donation.DateOfUpload = dataJson["Date_of_Upload"] as? String ?? ""
+        
         
         return donation 
     }

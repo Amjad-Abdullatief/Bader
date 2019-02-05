@@ -37,8 +37,8 @@ class XButton : UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        FirstColor = UIColor(red: 234.0/255.0, green: 144.0/255.0, blue: 76.0/255.0, alpha: 1.0)
-        SecondColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+//        FirstColor = UIColor(red: 234.0/255.0, green: 144.0/255.0, blue: 76.0/255.0, alpha: 1.0)
+//        SecondColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.tintColor = UIColor.white
         self.setTitleColor(UIColor.white, for: .normal )
     }
