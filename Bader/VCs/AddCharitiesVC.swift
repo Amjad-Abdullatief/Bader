@@ -84,16 +84,16 @@ class AddCharitiesVC : UIViewController
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        var name = (Name.text)! as String
-        var address = (Address.text)! as String
-        var city = (City.text)! as String
-        var phone = (Phone.text)! as String
-        var AM = (HouresAM.text)! as String
-        var PM = (HoyrsPM.text)! as String
-        var friday = (Friday.text)! as String
-        var saturday = (Saturday.text)! as String
-        var Coordinate_X = (CoordinateX.text)! as String
-        var Coordinate_Y = (CoordinateY.text)! as String
+        let name = (Name.text)! as String
+        let address = (Address.text)! as String
+        let city = (City.text)! as String
+        let phone = (Phone.text)! as String
+        let AM = (HouresAM.text)! as String
+        let PM = (HoyrsPM.text)! as String
+        let friday = (Friday.text)! as String
+        let saturday = (Saturday.text)! as String
+        let Coordinate_X : Double = Double(CoordinateX.text! as String)!
+        let Coordinate_Y : Double = Double(CoordinateY.text! as String)!
         
         
         let linkString = "http://amjadsufyani-001-site1.itempurl.com/api/values/AddCharities?"
@@ -104,16 +104,17 @@ class AddCharitiesVC : UIViewController
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
             do {
-                //                if let data = data,
-                //                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                //                    let blogs = json["result"] as? [[String: Any]] {
-                //                    //                    print("##URLSession blogs ")
-                //
-                //                    for blog in blogs {
-                //
-                //
-                //                    }
-                //                }
+                                if let data = data,
+                                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                                    let blogs = json["result"] as? [String: Any] {
+                                    print("##URLSession json : " + json.description)
+                                    print("##URLSession blogs : " + blogs.description)
+                                    
+                                    for blog in blogs {
+                
+                
+                                    }
+                                }
             } catch {
                 print("##Error deserializing JSON: \(error)")
             }
@@ -132,7 +133,7 @@ class AddCharitiesVC : UIViewController
         //looing through all the elements of the array
         DispatchQueue.main.async {
             
-            //            self.donationName.text = self.donation.name
+            //            self.donationName.text = ""
             //            self.donationUserName.text = self.user.Fname + self.user.Lname
             //            self.donationUserEmail.text = self.user.email
             //            self.donationImage.image = self.base64Convert(base64String: self.donation.image)

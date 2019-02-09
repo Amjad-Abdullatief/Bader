@@ -9,32 +9,89 @@
 
 import UIKit
 
-class MyDonationsDetailsVC: UIViewController {
+class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var donationName: UILabel!
     @IBOutlet weak var donationImage: UIImageView!
-    @IBOutlet weak var donationUserName: UILabel!
-    @IBOutlet weak var donationDesc: UILabel!
-    @IBOutlet weak var donationUserEmail: UILabel!
-    @IBOutlet weak var donationUserCity: UILabel!
+    @IBOutlet weak var donationDatetime: UILabel!
+    @IBOutlet weak var TableViewNeedyOrder: UITableView!
+    
+    
     
     var donation = Donations()
     var user = Users()
+    var needyOrder = NeedyOrders()
     var view1 = UIView()
     var donationId = 0
-    
+    var needyList = [NeedyOrders()]
+    var UserList = [Users()]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'/'HH':'mm"
+        
+        donationName.text = donation.name
+        donationImage.image = self.base64Convert(base64String: self.donation.image)
+        donationDatetime.text = (dateFormatter.date(from: donation.DateOfUpload.description ))?.description
         getJsonFromUrl()
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        
+        print("count return : \(needyList.count)")
+        stopLoding()
+        if UserList.count == 0 {
+            self.user = Users()
+            user.Fname = "لا يوجد متقدمين حاليا"
+            UserList.append(user)
+        }
+        return self.UserList.count
+        //                return 10
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = self.TableViewNeedyOrder.dequeueReusableCell(withIdentifier: "CellMyDonData", for: indexPath) as! ListNeedyCell
+        
+        var userCell : Users = self.UserList[indexPath.row]
+        var needyCell : NeedyOrders = self.needyList[indexPath.row]
+        
+        var acceptStets : Bool = false
+        
+        if needyCell.OrderUser_status == 1
+        {
+            acceptStets = true
+        }else{acceptStets = false}
+        
+        cell.NeedyNames.text = userCell.Fname + " " + userCell.Lname
+        cell.NeedyEmail.text = userCell.email
+        cell.NeedyAcceptButton.isHidden = !acceptStets
+        cell.NeedyStets.isHidden = acceptStets
+        cell.NeedyStets.text = (needyCell.OrderUser_status == 2) ? "تم القبول" : "تم الرفض"
+
+        let separatorLine = UIImageView.init(frame: CGRect(x: 4, y: 0, width: cell.frame.width - 8, height: 2))
+        separatorLine.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 250/255, alpha: 100)
+        cell.addSubview(separatorLine)
+        
+        return cell
+        
+    }
+    
+    
+    
+    
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getMyDonationsDetails?Donation_id=2")! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getNeedyNames?Donation_id=13")! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
@@ -43,26 +100,40 @@ class MyDonationsDetailsVC: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let blogs = json["result"] as? [[String: Any]] {
                     //                    print("##URLSession blogs ")
+                    self.needyList.removeAll()
+                    self.UserList.removeAll()
                     
                     for blog in blogs {
                         self.donation=Donations()
                         self.donation = self.donation.getDonationsData(dataJson: blog)
                         
                         if let userList = blog["user"] as? [String: Any] {
-                            print("##blogsUser = \(userList)")
+                            self.user = Users()
                             print("##blogsUser = \(userList)")
                             self.user = self.user.getUsersData(dataJson: userList)
-                            
+                            self.UserList.append(self.user)
                         }
+                            
+                            
+                            if let needyList = blog["needy"] as? [String: Any] {
+                                self.needyOrder = NeedyOrders()
+                                print("##blogsUser = \(needyList)")
+                                self.needyOrder = self.needyOrder.getOrdersData(dataJson: needyList)
+                            
+                                self.needyList.append(self.needyOrder)
+                        }
+                            
                         print("##donationId = \(self.donation.DonationId)")
                         print("##name = \(self.donation.name)")
                         print("##OrderStatus = \(self.donation.OrderStatus)")
                         print("##description = \(self.donation.description)")
-                        print("##user Fname = \(self.user.Fname)")
-                        print("##user mail = \(self.user.email)")
-                        print("##user city = \(self.user.city)")
+                            print("##OrderUser_status = \(self.needyOrder.OrderUser_status)")
+
+                        print("##OrderUser_userId = \(self.needyOrder.User_id)")
+
                         
                     }
+                    
                 }
             } catch {
                 print("##Error deserializing JSON: \(error)")
@@ -82,12 +153,9 @@ class MyDonationsDetailsVC: UIViewController {
         //looing through all the elements of the array
         DispatchQueue.main.async {
             
-            self.donationName.text = self.donation.name
-            self.donationUserName.text = self.user.Fname + self.user.Lname
-            self.donationUserEmail.text = self.user.email
-            self.donationImage.image = self.base64Convert(base64String: self.donation.image)
-            self.donationDesc.text = self.donation.description
-            self.donationUserCity.text = self.user.city
+            self.TableViewNeedyOrder.dataSource=self
+            self.TableViewNeedyOrder.reloadData()
+ 
             
         }
     }

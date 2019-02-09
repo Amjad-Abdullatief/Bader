@@ -11,6 +11,9 @@ import UIKit
 class ListNeedyCell: UITableViewCell {
 
     @IBOutlet weak var NeedyNames: UILabel!
+    @IBOutlet weak var NeedyEmail: UILabel!
+    @IBOutlet weak var NeedyAcceptButton: UIButton!
+    @IBOutlet weak var NeedyStets: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

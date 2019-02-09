@@ -110,7 +110,9 @@ extension LoginVC {
  
             if(self.user.UserId != 0)
             {
-                UserInfo.userId=self.user.UserId
+                
+                UserInfo.userId = 2
+//                UserInfo.userId=self.user.UserId
                 
                 let goToHomePage = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! TabBarController
                 self.present(goToHomePage, animated: true, completion: nil)

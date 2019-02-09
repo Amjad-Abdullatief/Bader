@@ -42,14 +42,6 @@ class MyDonationsVC : UIViewController , UITableViewDelegate , UITableViewDataSo
     {
         let cell = self.TableViewData.dequeueReusableCell(withIdentifier: "CellData", for: indexPath) as! MyOrders_DonationsCell
         
-        
-        
-        
-        
-        //        cell.backgroundColor = .clear
-        
-        
-        
         var donation : Donations = self.donationList[indexPath.row]
         
         
@@ -71,15 +63,15 @@ class MyDonationsVC : UIViewController , UITableViewDelegate , UITableViewDataSo
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let item = donationList[indexPath.row]
-//        print("##item : \(donationList[indexPath.row])")
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "segueMyDonation") as! MyDonationsDetailsVC
-//        vc.donationId = item.DonationId
-//        self.present(vc, animated: true, completion: nil)
-//        
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let item = donationList[indexPath.row]
+        print("##item : \(donationList[indexPath.row])")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "segueMyDonation") as! MyDonationsDetailsVC
+        vc.donation = item
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
