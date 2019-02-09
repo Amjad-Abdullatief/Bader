@@ -87,7 +87,7 @@ class MyOrdersVC : UIViewController , UITableViewDelegate , UITableViewDataSourc
         
         let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/getMyOrder?Id_Needy="+UserInfo.userId.description)!
         
-        //+UserInfo.userId.description)! // Enter URL Here
+        
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")

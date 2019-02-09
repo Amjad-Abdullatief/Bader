@@ -1,45 +1,84 @@
 //
-//  DonationDetailsVCViewController.swift
+//  DeliveryPageVC.swift
 //  Bader
 //
-//  Created by Itc on 02/02/2019.
-//  Copyright © 2019 aa. All rights reserved.
+//  Created by AMJAD - on 4 جما٢، 1440 هـ.
+//  Copyright © 1440 هـ aa. All rights reserved.
 //
 
 import UIKit
 
-class DonationDetailsVC: UIViewController {
-
-    @IBOutlet weak var donationName: UILabel!
-    @IBOutlet weak var donationImage: UIImageView!
-    @IBOutlet weak var donationUserName: UILabel!
-    @IBOutlet weak var donationDesc: UILabel!
-    @IBOutlet weak var donationUserEmail: UILabel!
-    @IBOutlet weak var donationUserCity: UILabel!
+class DeliveryPageVC : UIViewController , UITableViewDelegate , UITableViewDataSource {
     
-    @IBAction func OrderButton(_ sender: UIButton) {
-        getJFUInsirtNewRequest()
-    }
+    @IBOutlet weak var DeliveryTableView: UITableView!
     
     var donation = Donations()
     var user = Users()
     var view1 = UIView()
-    var donationId = 0;
-
+    //var needyList = [NeedyOrders()]
+    var UserList = [Users()]
+    var donationList = [Donations()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("##viewDidLoad open")
+        
+        InitializeSpinner()
+        startLoding()
         getJsonFromUrl()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        
+        print("count return : \(donationList.count)")
+        stopLoding()
+        
+        return self.donationList.count
+        
+    
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = self.DeliveryTableView.dequeueReusableCell(withIdentifier: "DeliveryCell", for: indexPath) as! DeliveryTableViewCell
+        
+        
+        var donation : Donations = self.donationList[indexPath.row]
+         var user : Users = self.UserList[indexPath.row]
+        
+        
+        print("donation.name : \(donation.name)")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'/'HH':'mm"
+
+//        cell.UploadDate.text = (dateFormatter.date(from: "donation.DateOfUpload" ))?.description
+        
+                cell.DonationName.text = self.donation.name
+                cell.NeedyName.text = self.user.Fname + " " + self.user.Lname
+                cell.Email.text = self.user.email
+                cell.City.text = self.user.city
+                cell.DonationImage.image = base64Convert(base64String: donation.image)
+
+        
+        let separatorLine = UIImageView.init(frame: CGRect(x: 4, y: 0, width: cell.frame.width - 8, height: 2))
+        separatorLine.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 250/255, alpha: 100)
+        cell.addSubview(separatorLine)
+        
+        return cell
         
     }
  
+    
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")
         print("##performPostRequest open")
         
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DonationDetails?Donation_id="+donationId.description)! // Enter URL Here
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DeliverPage" )!
+        
+        //+UserInfo.userId.description)! // Enter URL Here
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("##URLSession open")
@@ -48,24 +87,26 @@ class DonationDetailsVC: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let blogs = json["result"] as? [[String: Any]] {
                     //                    print("##URLSession blogs ")
-
+                    self.donationList.removeAll()
                     for blog in blogs {
                         self.donation=Donations()
                         self.donation = self.donation.getDonationsData(dataJson: blog)
                         
                         if let userList = blog["user"] as? [String: Any] {
-                            print("##blogsUser = \(userList)")
-                            print("##blogsUser = \(userList)")
+//                            print("##blogsUser = \(userList)")
+//                            print("##blogsUser = \(userList)")
                             self.user = self.user.getUsersData(dataJson: userList)
-
+                            
                         }
                         print("##donationId = \(self.donation.DonationId)")
                         print("##name = \(self.donation.name)")
                         print("##OrderStatus = \(self.donation.OrderStatus)")
-                        print("##description = \(self.donation.description)")
                         print("##user Fname = \(self.user.Fname)")
                         print("##user mail = \(self.user.email)")
                         print("##user city = \(self.user.city)")
+                        
+                        self.UserList.append(self.user)
+                        self.donationList.append(self.donation)
                         
                     }
                 }
@@ -86,13 +127,9 @@ class DonationDetailsVC: UIViewController {
     func showNames(){
         //looing through all the elements of the array
         DispatchQueue.main.async {
-            
-            self.donationName.text = self.donation.name
-            self.donationUserName.text = self.user.Fname + " " + self.user.Lname
-            self.donationUserEmail.text = self.user.email
-            self.donationImage.image = self.base64Convert(base64String: self.donation.image)
-            self.donationDesc.text = self.donation.description
-            self.donationUserCity.text = self.user.city
+           
+            self.DeliveryTableView.dataSource=self
+            self.DeliveryTableView.reloadData()
             
         }
     }
@@ -144,57 +181,4 @@ class DonationDetailsVC: UIViewController {
             return decodedimage!
         }
     }
-
-
-    
-    func getJFUInsirtNewRequest(){
-        print("##getJsonFromUrl open")
-        print("##performPostRequest open")
-        
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/updateWhenOrder?User_Id=" + UserInfo.userId.description + "&Donation_id=" + donationId.description)! // Enter URL Here
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            print("##URLSession open")
-            do {
-                if let data = data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let blogs = json["result"] as? [[String: Any]] {
-                    //                    print("##URLSession blogs ")
-                    
-                    for blog in blogs {
-                        self.donation=Donations()
-                        self.donation = self.donation.getDonationsData(dataJson: blog)
-                        
-                        if let userList = blog["user"] as? [String: Any] {
-                            print("##blogsUser = \(userList)")
-                            print("##blogsUser = \(userList)")
-                            self.user = self.user.getUsersData(dataJson: userList)
-                            
-                        }
-                        print("##donationId = \(self.donation.DonationId)")
-                        print("##name = \(self.donation.name)")
-                        print("##OrderStatus = \(self.donation.OrderStatus)")
-                        print("##description = \(self.donation.description)")
-                        print("##user Fname = \(self.user.Fname)")
-                        print("##user mail = \(self.user.email)")
-                        print("##user city = \(self.user.city)")
-                        
-                    }
-                }
-            } catch {
-                print("##Error deserializing JSON: \(error)")
-            }
-            //            print("##names: \(self.names)")
-            
-            //            print(self.names)
-            self.showNames()
-            
-        }
-        task.resume()
-        
-        
-    }
-    
-    
-    
 }

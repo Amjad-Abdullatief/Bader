@@ -74,6 +74,9 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
         cell.NeedyAcceptButton.isHidden = !acceptStets
         cell.NeedyStets.isHidden = acceptStets
         cell.NeedyStets.text = (needyCell.OrderUser_status == 2) ? "تم القبول" : "تم الرفض"
+        
+        cell.NeedyAcceptButton.tag = indexPath.row
+        cell.NeedyAcceptButton.addTarget(self, action: #selector(AcceptNeedy) , for: .touchUpInside)
 
         let separatorLine = UIImageView.init(frame: CGRect(x: 4, y: 0, width: cell.frame.width - 8, height: 2))
         separatorLine.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 250/255, alpha: 100)
@@ -82,6 +85,38 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
         return cell
         
     }
+    
+    @IBAction func AcceptNeedy(_ sender: UIButton) {
+        print("##AcceptNeedy start")
+        needyOrder = NeedyOrders()
+        let text : Int = Int((sender ).tag)
+        needyOrder = needyList[text]
+        print("##AcceptNeedy Button :\(needyOrder.id)")
+        UpdateUserStatus()
+    }
+    
+    func UpdateUserStatus () {
+        print("##getJsonFromUrl open")
+        print("##performPostRequest open")
+
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/updateWhenAccepteOne?User_Id=" + needyOrder.id.description + "Donation_id=" + donationId.description)! // Enter URL Here
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            print("##URLSession open")
+        do {
+            if let data = data,
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                let blogs = json["result"] as? [String: Any] {
+                print("##blog = \(blogs.count)")
+            }
+        } catch {
+            print("##Error deserializing JSON: \(error)")
+        }
+        self.showNames()
+        
+    }
+    task.resume()
+}
     
     
     

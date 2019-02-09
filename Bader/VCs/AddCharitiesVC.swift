@@ -97,7 +97,7 @@ class AddCharitiesVC : UIViewController
         
         
         let linkString = "http://amjadsufyani-001-site1.itempurl.com/api/values/AddCharities?"
-        var linkParameter = "Name=\(name)&Address=\(address)&Phone=\(phone)&City=\(city)&Type=\(Name)&Coordinate_X=\(Coordinate_X)&Coordinate_Y=\(Coordinate_Y)&hours_AM=\(AM)&hours_PM=\(PM)&hours_Saturday=\(saturday)&hours_Friday=\(friday)".addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)!
+        let linkParameter = "Name=\(name)&Address=\(address)&Phone=\(phone)&City=\(city)&Coordinate_X=\(Coordinate_X)&Coordinate_Y=\(Coordinate_Y)&hours_AM=\(AM)&hours_PM=\(PM)&hours_Saturday=\(saturday)&hours_Friday=\(friday)".addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)!
         let url = URL(string: (linkString+linkParameter) )! // Enter URL Here
         
         

@@ -18,7 +18,7 @@ class NeedyOrders {
     
     func getOrdersData( dataJson:[String: Any] ) -> (NeedyOrders) {
         var order = NeedyOrders()
-        order.id = dataJson["id"] as? Int ?? 0
+        order.id = dataJson["ID"] as? Int ?? 0
         order.User_id = dataJson["User_id"] as? Int ?? 0
         order.Donation_id = dataJson["Donation_id"] as? Int ?? 0
         order.OrderUser_status = dataJson["OrderUser_status"] as? Int ?? 0
