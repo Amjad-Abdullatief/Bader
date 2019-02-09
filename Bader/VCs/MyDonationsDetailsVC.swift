@@ -74,7 +74,11 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
         cell.NeedyAcceptButton.isHidden = !acceptStets
         cell.NeedyStets.isHidden = acceptStets
         cell.NeedyStets.text = (needyCell.OrderUser_status == 2) ? "تم القبول" : "تم الرفض"
-
+        cell.NeedyAcceptButton.tag = indexPath.row
+        cell.NeedyAcceptButton.addTarget(self, action: #selector(AcceptNeedy) , for: .touchUpInside)
+        
+        
+        
         let separatorLine = UIImageView.init(frame: CGRect(x: 4, y: 0, width: cell.frame.width - 8, height: 2))
         separatorLine.backgroundColor = UIColor.init(red: 255/255, green: 255/255, blue: 250/255, alpha: 100)
         cell.addSubview(separatorLine)
@@ -85,6 +89,15 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
     
     
     
+
+    
+    @IBAction func AcceptNeedy(_ sender: UIButton) {
+        print("##AcceptNeedy start")
+        needyOrder = NeedyOrders()
+        let text : Int = Int((sender ).tag)
+        needyOrder = needyList[text]
+        print("##AcceptNeedy Button :\(needyOrder.id)")
+    }
     
     
     func getJsonFromUrl(){
