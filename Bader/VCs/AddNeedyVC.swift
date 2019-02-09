@@ -19,7 +19,7 @@ class AddNeedyVC : UIViewController
     @IBOutlet weak var labelMassage: UILabel!
     
     @IBAction func Send(_ sender: Any) {
-        getJsonFromUrl()
+       getJsonFromUrl()
         
 //        labelMassage.isHidden=false
 //
@@ -27,11 +27,11 @@ class AddNeedyVC : UIViewController
 //
 //            labelMassage.text="يرجى تعبئة الحقول المطلوبة"
 //            labelMassage.isHidden=true
-//        } else {
+//       } else {
 //             getJsonFromUrl()
 //        }
-        
-    }
+//
+   }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -86,7 +86,7 @@ extension AddNeedyVC {
         
         
         let linkString = "http://amjadsufyani-001-site1.itempurl.com/api/values/AddNeedy?"
-        var linkParameter = "Order_Id=\(3)&Name_of_Needy=\(Name)&Order_the_Needy=\(order)&Address=\(address)&Contact_Way=\(contact)".addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)!
+        var linkParameter = "Name_of_Needy=\(Name)&Order_the_Needy=\(order)&Address=\(address)&Contact_Way=\(contact)".addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)!
         let url = URL(string: (linkString+linkParameter) )! // Enter URL Here
         
         

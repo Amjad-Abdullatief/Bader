@@ -16,6 +16,9 @@
 		AB109E472208DE2400F1D645 /* MyDonationsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB109E462208DE2400F1D645 /* MyDonationsDetailsVC.swift */; };
 		AB109E492208DF8700F1D645 /* ListNeedyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB109E482208DF8700F1D645 /* ListNeedyCell.swift */; };
 		AB1695D022077119007F3E1E /* MyOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1695CF22077119007F3E1E /* MyOrdersVC.swift */; };
+		AB1E7CC0220C8DCC006FBA05 /* DisplayOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E7CBF220C8DCC006FBA05 /* DisplayOrdersCell.swift */; };
+		AB1E7CC2220CADBC006FBA05 /* DisplayCharityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E7CC1220CADBC006FBA05 /* DisplayCharityVC.swift */; };
+		AB1E7CC4220CB932006FBA05 /* AddCharitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E7CC3220CB932006FBA05 /* AddCharitiesVC.swift */; };
 		AB41F32421F8D4C900474F07 /* XUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41F32321F8D4C900474F07 /* XUI.swift */; };
 		AB60C8D02203696500942930 /* Charities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8CF2203696500942930 /* Charities.swift */; };
 		AB60C8D222036C7400942930 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8D122036C7400942930 /* Users.swift */; };
@@ -23,6 +26,7 @@
 		AB60C8D62203782600942930 /* Needy_Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8D52203782600942930 /* Needy_Orders.swift */; };
 		AB60C8D82203812000942930 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60C8D72203812000942930 /* Orders.swift */; };
 		AB6AB08D2207F3F7009A6802 /* MyOrders_DonationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6AB08C2207F3F7009A6802 /* MyOrders_DonationsCell.swift */; };
+		AB7BB933220C89C200F86AE7 /* DisplayOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BB932220C89C200F86AE7 /* DisplayOrdersVC.swift */; };
 		ABD183E021F64BF900B73B4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD183DF21F64BF900B73B4B /* AppDelegate.swift */; };
 		ABD183E221F64BF900B73B4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD183E121F64BF900B73B4B /* ViewController.swift */; };
 		ABD183E521F64BF900B73B4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD183E321F64BF900B73B4B /* Main.storyboard */; };
@@ -46,6 +50,9 @@
 		AB109E462208DE2400F1D645 /* MyDonationsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDonationsDetailsVC.swift; sourceTree = "<group>"; };
 		AB109E482208DF8700F1D645 /* ListNeedyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNeedyCell.swift; sourceTree = "<group>"; };
 		AB1695CF22077119007F3E1E /* MyOrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersVC.swift; sourceTree = "<group>"; };
+		AB1E7CBF220C8DCC006FBA05 /* DisplayOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOrdersCell.swift; sourceTree = "<group>"; };
+		AB1E7CC1220CADBC006FBA05 /* DisplayCharityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCharityVC.swift; sourceTree = "<group>"; };
+		AB1E7CC3220CB932006FBA05 /* AddCharitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharitiesVC.swift; sourceTree = "<group>"; };
 		AB41F32321F8D4C900474F07 /* XUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUI.swift; sourceTree = "<group>"; };
 		AB60C8CF2203696500942930 /* Charities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charities.swift; sourceTree = "<group>"; };
 		AB60C8D122036C7400942930 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 		AB60C8D52203782600942930 /* Needy_Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Needy_Orders.swift; sourceTree = "<group>"; };
 		AB60C8D72203812000942930 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		AB6AB08C2207F3F7009A6802 /* MyOrders_DonationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrders_DonationsCell.swift; sourceTree = "<group>"; };
+		AB7BB932220C89C200F86AE7 /* DisplayOrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOrdersVC.swift; sourceTree = "<group>"; };
 		ABD183DC21F64BF900B73B4B /* Bader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD183DF21F64BF900B73B4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD183E121F64BF900B73B4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 				AB60C8D122036C7400942930 /* Users.swift */,
 				AB60C8D72203812000942930 /* Orders.swift */,
 				AB60C8D52203782600942930 /* Needy_Orders.swift */,
+				AB1E7CBF220C8DCC006FBA05 /* DisplayOrdersCell.swift */,
 				AB60C8D322036C9500942930 /* Donations .swift */,
 				ABD183E321F64BF900B73B4B /* Main.storyboard */,
 				AB6AB08C2207F3F7009A6802 /* MyOrders_DonationsCell.swift */,
@@ -143,11 +152,14 @@
 				ABFA8E7721FCBB670070720E /* DisplayDonationsVC.swift */,
 				622576EE22057F3A009BB70C /* DonationDetailsVC.swift */,
 				AB109E442208D89E00F1D645 /* MyDonationsVC.swift */,
+				AB1E7CC1220CADBC006FBA05 /* DisplayCharityVC.swift */,
 				ABE3F0B22209F32500CE9024 /* AddNeedyVC.swift */,
+				AB1E7CC3220CB932006FBA05 /* AddCharitiesVC.swift */,
 				AB109E462208DE2400F1D645 /* MyDonationsDetailsVC.swift */,
 				AB1695CF22077119007F3E1E /* MyOrdersVC.swift */,
 				ABE3F0B02209EC3500CE9024 /* MyOrdersDetailsaVC.swift */,
 				ABEEC91B21FA0D53009652AA /* LoginVC.swift */,
+				AB7BB932220C89C200F86AE7 /* DisplayOrdersVC.swift */,
 				ABEEC91D21FA2700009652AA /* SignUpVC.swift */,
 				62439D3B220A244200C03DB2 /* AddDonationVC.swift */,
 			);
@@ -233,6 +245,7 @@
 				AB41F32421F8D4C900474F07 /* XUI.swift in Sources */,
 				AB60C8D62203782600942930 /* Needy_Orders.swift in Sources */,
 				ABE3F0B32209F32500CE9024 /* AddNeedyVC.swift in Sources */,
+				AB1E7CC4220CB932006FBA05 /* AddCharitiesVC.swift in Sources */,
 				AB60C8D422036C9500942930 /* Donations .swift in Sources */,
 				AB109E452208D89E00F1D645 /* MyDonationsVC.swift in Sources */,
 				AB60C8D82203812000942930 /* Orders.swift in Sources */,
@@ -243,11 +256,14 @@
 				ABEEC91E21FA2700009652AA /* SignUpVC.swift in Sources */,
 				AB6AB08D2207F3F7009A6802 /* MyOrders_DonationsCell.swift in Sources */,
 				62439D3C220A244200C03DB2 /* AddDonationVC.swift in Sources */,
+				AB1E7CC0220C8DCC006FBA05 /* DisplayOrdersCell.swift in Sources */,
+				AB1E7CC2220CADBC006FBA05 /* DisplayCharityVC.swift in Sources */,
 				AB109E492208DF8700F1D645 /* ListNeedyCell.swift in Sources */,
 				ABFA8E7A21FCD3200070720E /* DonationsCell.swift in Sources */,
 				62251DBF2204D2000088A154 /* TabBarController.swift in Sources */,
 				ABE3F0B12209EC3500CE9024 /* MyOrdersDetailsaVC.swift in Sources */,
 				AB60C8D02203696500942930 /* Charities.swift in Sources */,
+				AB7BB933220C89C200F86AE7 /* DisplayOrdersVC.swift in Sources */,
 				ABD183E021F64BF900B73B4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
