@@ -120,6 +120,15 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
     
     
     
+
+    
+    @IBAction func AcceptNeedy(_ sender: UIButton) {
+        print("##AcceptNeedy start")
+        needyOrder = NeedyOrders()
+        let text : Int = Int((sender ).tag)
+        needyOrder = needyList[text]
+        print("##AcceptNeedy Button :\(needyOrder.id)")
+    }
     
     
     func getJsonFromUrl(){
