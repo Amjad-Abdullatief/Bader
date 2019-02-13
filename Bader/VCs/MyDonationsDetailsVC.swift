@@ -108,6 +108,7 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
                 let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                 let blogs = json["result"] as? [String: Any] {
                 print("##blog = \(blogs.count)")
+                var check = blogs ;
             }
         } catch {
             print("##Error deserializing JSON: \(error)")
@@ -117,19 +118,7 @@ class MyDonationsDetailsVC: UIViewController , UITableViewDelegate , UITableView
     }
     task.resume()
 }
-    
-    
-    
 
-    
-//    @IBAction func AcceptNeedy(_ sender: UIButton) {
-//        print("##AcceptNeedy start")
-//        needyOrder = NeedyOrders()
-//        let text : Int = Int((sender ).tag)
-//        needyOrder = needyList[text]
-//        print("##AcceptNeedy Button :\(needyOrder.id)")
-//    }
-    
     
     func getJsonFromUrl(){
         print("##getJsonFromUrl open")

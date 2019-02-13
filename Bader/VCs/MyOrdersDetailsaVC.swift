@@ -18,16 +18,13 @@ class MyOrdersDetailsaVC: UIViewController {
     @IBOutlet weak var donationUserEmail: UILabel!
     @IBOutlet weak var donationUserCity: UILabel!
     
-    @IBAction func DeliveryButton(_ sender: UIButton) {
-        UpdateToDelivery()
-    }
-    
+    @IBOutlet weak var ButtonDelivary: UIButton!
     
     var donation = Donations()
     var user = Users()
     var view1 = UIView()
     var donationId = 0;
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,54 +33,13 @@ class MyOrdersDetailsaVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func getJsonFromUrl(){
-        print("##getJsonFromUrl open")
-        print("##performPostRequest open")
-        
-        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DonationDetails?Donation_id="+donationId.description)! // Enter URL Here
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            print("##URLSession open")
-            do {
-                if let data = data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let blogs = json["result"] as? [[String: Any]] {
-                    //                    print("##URLSession blogs ")
-                    
-                    for blog in blogs {
-                        self.donation=Donations()
-                        self.donation = self.donation.getDonationsData(dataJson: blog)
-                        
-                        if let userList = blog["user"] as? [String: Any] {
-                            print("##blogsUser = \(userList)")
-                            print("##blogsUser = \(userList)")
-                            self.user = self.user.getUsersData(dataJson: userList)
-                            
-                        }
-                        print("##donationId = \(self.donation.DonationId)")
-                        print("##name = \(self.donation.name)")
-                        print("##OrderStatus = \(self.donation.OrderStatus)")
-                        print("##description = \(self.donation.description)")
-                        print("##user Fname = \(self.user.Fname)")
-                        print("##user mail = \(self.user.email)")
-                        print("##user city = \(self.user.city)")
-                        
-                    }
-                }
-            } catch {
-                print("##Error deserializing JSON: \(error)")
-            }
-            //            print("##names: \(self.names)")
-            
-            //            print(self.names)
-            self.showNames()
-            
-        }
-        task.resume()
-        
-        
+    
+    
+    @IBAction func DeliveryButton(_ sender: UIButton) {
+        UpdateToDelivery()
     }
     
+ 
     func showNames(){
         //looing through all the elements of the array
         DispatchQueue.main.async {
@@ -94,6 +50,8 @@ class MyOrdersDetailsaVC: UIViewController {
             self.donationImage.image = self.base64Convert(base64String: self.donation.image)
             self.donationDesc.text = self.donation.description
             self.donationUserCity.text = self.user.city
+            
+            self.ButtonDelivary.isHidden = ( UserInfo.userId == self.donation.Id_of_Needy ) ? false : true;
             
         }
     }
@@ -145,6 +103,56 @@ class MyOrdersDetailsaVC: UIViewController {
             return decodedimage!
         }
     }
+    
+    
+    func getJsonFromUrl(){
+        print("##getJsonFromUrl open")
+        print("##performPostRequest open")
+        
+        let url = URL(string: "http://amjadsufyani-001-site1.itempurl.com/api/values/DonationDetails?Donation_id="+donationId.description)! // Enter URL Here
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            print("##URLSession open")
+            do {
+                if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let blogs = json["result"] as? [[String: Any]] {
+                    //                    print("##URLSession blogs ")
+                    
+                    for blog in blogs {
+                        self.donation=Donations()
+                        self.donation = self.donation.getDonationsData(dataJson: blog)
+                        
+                        if let userList = blog["user"] as? [String: Any] {
+                            print("##blogsUser = \(userList)")
+                            print("##blogsUser = \(userList)")
+                            self.user = self.user.getUsersData(dataJson: userList)
+                            
+                        }
+                        print("##donationId = \(self.donation.DonationId)")
+                        print("##name = \(self.donation.name)")
+                        print("##OrderStatus = \(self.donation.OrderStatus)")
+                        print("##description = \(self.donation.description)")
+                        print("##user Fname = \(self.user.Fname)")
+                        print("##user mail = \(self.user.email)")
+                        print("##user city = \(self.user.city)")
+                        
+                    }
+                }
+            } catch {
+                print("##Error deserializing JSON: \(error)")
+            }
+            //            print("##names: \(self.names)")
+            
+            //            print(self.names)
+            self.showNames()
+            
+        }
+        task.resume()
+        
+        
+    }
+    
     
     func UpdateToDelivery(){
         print("##getJsonFromUrl open")
